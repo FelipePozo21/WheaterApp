@@ -1,4 +1,4 @@
-export async function searchWheater(coordinates, setMin, setMax, setDays) {
+export async function searchWheater(coordinates) {
   const { long, lat } = coordinates;
   const URL = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max,temperature_2m_min`;
 
@@ -11,11 +11,7 @@ export async function searchWheater(coordinates, setMin, setMax, setDays) {
 
     const data = await response.json();
     const day = data.daily;
-    console.log(day);
-
-    setMax(day.temperature_2m_max);
-    setMin(day.temperature_2m_min);
-    setDays(day.time);
+    console.log(day.temperature_2m_max);
   } catch (error) {
     throw new Error(error);
   }

@@ -1,20 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../Context/Context";
 
 export function Form() {
   const { setSearch } = useContext(Context);
-
+  const [state, setState] = useState("");
   return (
     <form>
       <input
         type="text"
-        onChange={(e) => {
-          setSearch(e.target.value);
+        onInput={(e) => {
+          console.log(e.target.value);
+          setState(e.target.value);
         }}
       />
       <button
         onClick={(e) => {
           e.preventDefault();
+          setSearch(state);
         }}
       >
         Click

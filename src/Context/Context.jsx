@@ -1,4 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { searchHook } from "../utils/searchHook";
+import { searchWheater } from "../utils/wheater";
 
 export const Context = createContext();
 
@@ -9,6 +11,17 @@ export function ContextProvider({ children }) {
   const [wheaterMax, setWheaterMax] = useState([]);
   const [days, setDays] = useState([]);
   const [fetchData, setFetchData] = useState(false);
+
+  console.log(search);
+
+  useEffect(() => {
+    if (search) {
+      searchHook(search, setCoordinates);
+      if (coordinates) {
+        searchWheater();
+      }
+    }
+  }, [search]);
 
   return (
     <Context.Provider
