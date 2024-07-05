@@ -1,7 +1,5 @@
-import { searchWheater } from "./wheater";
-
 export async function searchHook(name, setCoordinates) {
-  const URL = `https://geocoding-api.open-meteo.com/v1/search?name=${name}&count=1`;
+  const URL = `https://geocoding-api.open-meteo.com/v1/search?name=${name}&count=1&language=es`;
 
   try {
     const response = await fetch(URL);

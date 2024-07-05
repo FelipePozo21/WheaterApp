@@ -1,6 +1,6 @@
 export function Layout(props) {
   const { min, max, days } = props;
-
+  console.log(min, max, days);
   return (
     <>
       <div>

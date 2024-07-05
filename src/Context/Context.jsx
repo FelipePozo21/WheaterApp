@@ -10,18 +10,17 @@ export function ContextProvider({ children }) {
   const [wheaterMin, setWheaterMin] = useState([]);
   const [wheaterMax, setWheaterMax] = useState([]);
   const [days, setDays] = useState([]);
-  const [fetchData, setFetchData] = useState(false);
-
-  console.log(search);
 
   useEffect(() => {
     if (search) {
       searchHook(search, setCoordinates);
-      if (coordinates) {
-        searchWheater();
-      }
     }
   }, [search]);
+  useEffect(() => {
+    if (coordinates.long !== null && coordinates.lat !== null) {
+      searchWheater(coordinates, setDays, setWheaterMax, setWheaterMin);
+    }
+  }, [coordinates]);
 
   return (
     <Context.Provider
@@ -36,8 +35,6 @@ export function ContextProvider({ children }) {
         setWheaterMax,
         days,
         setDays,
-        fetchData,
-        setFetchData,
       }}
     >
       {children}

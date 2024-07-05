@@ -1,17 +1,13 @@
 import { useContext } from "react";
 import { Context } from "../Context/Context";
-import { Layout } from "../layout/cardWheater";
+import { Layout } from "../layout/Layout";
 
 export function Card() {
-  const { fetchData, days, wheaterMax, wheaterMin } = useContext(Context);
+  const { days, wheaterMax, wheaterMin } = useContext(Context);
 
   return (
     <div>
-      {fetchData ? (
-        <Layout days={days} max={wheaterMax} min={wheaterMin} />
-      ) : (
-        ""
-      )}
+      {days ? <Layout days={days} max={wheaterMax} min={wheaterMin} /> : ""}
     </div>
   );
 }
