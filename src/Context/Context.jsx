@@ -19,7 +19,6 @@ export function ContextProvider({ children }) {
       searchHook(search, setCoordinates);
       if (coordinates) {
         searchWheater();
-        console.log(" ");
       }
     }
   }, [search]);
