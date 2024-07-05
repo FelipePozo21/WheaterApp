@@ -1,0 +1,33 @@
+import { createContext, useState } from "react";
+
+export const Context = createContext();
+
+export function ContextProvider({ children }) {
+  const [search, setSearch] = useState("");
+  const [coordinates, setCoordinates] = useState({ long: null, lat: null });
+  const [wheaterMin, setWheaterMin] = useState([]);
+  const [wheaterMax, setWheaterMax] = useState([]);
+  const [days, setDays] = useState([]);
+  const [fetchData, setFetchData] = useState(false);
+
+  return (
+    <Context.Provider
+      value={{
+        search,
+        setSearch,
+        coordinates,
+        setCoordinates,
+        wheaterMin,
+        setWheaterMin,
+        wheaterMax,
+        setWheaterMax,
+        days,
+        setDays,
+        fetchData,
+        setFetchData,
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
+}
