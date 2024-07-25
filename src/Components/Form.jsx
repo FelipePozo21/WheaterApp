@@ -9,7 +9,6 @@ export function Form() {
       <input
         type="text"
         onInput={(e) => {
-          console.log(e.target.value);
           setState(e.target.value);
         }}
       />

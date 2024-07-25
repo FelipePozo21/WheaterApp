@@ -1,17 +1,17 @@
-import { useContext } from "react";
-import { Context } from "../Context/Context";
+// import { useContext } from "react";
+// import { Context } from "../Context/Context";
 
-export function Coordinates() {
-  const { coordinates } = useContext(Context);
+// export function Coordinates() {
+//   const { coordinates } = useContext(Context);
 
-  return (
-    <div>
-      {coordinates.long !== null && coordinates.lat !== null && (
-        <div>
-          <p>latitud: {coordinates.lat}</p>
-          <p>longitude: {coordinates.long}</p>
-        </div>
-      )}
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       {coordinates.long !== null && coordinates.lat !== null && (
+//         <div>
+//           <p>latitud: {coordinates.lat}</p>
+//           <p>longitude: {coordinates.long}</p>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
